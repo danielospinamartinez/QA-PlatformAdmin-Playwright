@@ -1,0 +1,225 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - generic [ref=e6]:
+    - generic [ref=e7]:
+      - button "Menu" [ref=e8]:
+        - img "Menu" [ref=e9]
+      - link "Logo" [ref=e10] [cursor=pointer]:
+        - /url: /platform-admin/
+        - img "Logo" [ref=e11]
+    - list [ref=e15]:
+      - listitem [ref=e16]:
+        - link "Home" [ref=e17] [cursor=pointer]:
+          - /url: /platform-admin/
+          - generic [ref=e20]:
+            - img [ref=e21]
+            - generic [ref=e23]: Home
+      - listitem [ref=e24]:
+        - link "Tenants" [ref=e25] [cursor=pointer]:
+          - /url: /platform-admin/modules/tenants
+          - generic [ref=e28]:
+            - img [ref=e29]
+            - generic [ref=e31]: Tenants
+      - listitem [ref=e32]:
+        - link "Travellers" [ref=e33] [cursor=pointer]:
+          - /url: /platform-admin/modules/travellers
+          - generic [ref=e36]:
+            - img [ref=e37]
+            - generic [ref=e39]: Travellers
+      - listitem [ref=e40]:
+        - link "Orders" [ref=e41] [cursor=pointer]:
+          - /url: /platform-admin/modules/orders
+          - generic [ref=e44]:
+            - img [ref=e45]
+            - generic [ref=e47]: Orders
+      - listitem [ref=e48]:
+        - link "Esims" [ref=e49] [cursor=pointer]:
+          - /url: /platform-admin/modules/esims
+          - generic [ref=e52]:
+            - img [ref=e53]
+            - generic [ref=e55]: Esims
+      - listitem [ref=e56]:
+        - link "Payments" [ref=e57] [cursor=pointer]:
+          - /url: /platform-admin/modules/payments
+          - generic [ref=e60]:
+            - img [ref=e61]
+            - generic [ref=e63]: Payments
+      - listitem [ref=e64]:
+        - link "Stock Manager" [ref=e65] [cursor=pointer]:
+          - /url: /platform-admin/modules/stock-manager
+          - generic [ref=e68]:
+            - img [ref=e69]
+            - generic [ref=e71]: Stock Manager
+      - listitem [ref=e72]:
+        - link "Discounts & Vouchers" [ref=e73] [cursor=pointer]:
+          - /url: /platform-admin/modules/discounts
+          - generic [ref=e76]:
+            - img [ref=e77]
+            - generic [ref=e79]: Discounts & Vouchers
+    - list [ref=e81]:
+      - listitem [ref=e82]:
+        - button "Gustavo Adolfo Gustavo Adolfo gustavo.ospina@holafly.com" [ref=e83]:
+          - img "Gustavo Adolfo" [ref=e85]
+          - generic [ref=e86]:
+            - generic [ref=e87]: Gustavo Adolfo
+            - generic [ref=e88]: gustavo.ospina@holafly.com
+          - img [ref=e89]
+  - main [ref=e93]:
+    - generic [ref=e94]:
+      - navigation [ref=e95]:
+        - link [ref=e96] [cursor=pointer]:
+          - /url: /platform-admin/
+          - img [ref=e97]
+        - img [ref=e100]
+        - generic [ref=e102]: Discounts and vouchers
+      - heading "Discounts and vouchers" [level=1] [ref=e104]
+      - generic [ref=e108]:
+        - textbox "Search by discount name" [ref=e109]
+        - button [ref=e110]:
+          - img [ref=e111]
+      - table [ref=e116]:
+        - rowgroup [ref=e117]:
+          - row "Discount name Type Status Validity window Usage counter Actions" [ref=e118]:
+            - columnheader "Discount name" [ref=e119]:
+              - generic [ref=e121]: Discount name
+            - columnheader "Type" [ref=e122]:
+              - generic [ref=e124]: Type
+            - columnheader "Status" [ref=e125]:
+              - generic [ref=e127]: Status
+            - columnheader "Validity window" [ref=e128]:
+              - generic [ref=e130]: Validity window
+            - columnheader "Usage counter" [ref=e131]:
+              - generic [ref=e133]: Usage counter
+            - columnheader "Actions" [ref=e134]:
+              - generic [ref=e136]: Actions
+        - rowgroup [ref=e137]:
+          - row "QA-Test50 % Enabled Mar 17, 2026 - Mar 31, 2026" [ref=e138]:
+            - cell "QA-Test50" [ref=e139] [cursor=pointer]
+            - cell "%" [ref=e140] [cursor=pointer]
+            - cell "Enabled" [ref=e141] [cursor=pointer]:
+              - paragraph [ref=e144]: Enabled
+            - cell "Mar 17, 2026 - Mar 31, 2026" [ref=e145] [cursor=pointer]:
+              - generic [ref=e146]: Mar 17, 2026 - Mar 31, 2026
+            - cell [ref=e147] [cursor=pointer]
+            - cell [ref=e148] [cursor=pointer]:
+              - button [ref=e150]:
+                - img [ref=e151]
+          - row "QA-SB4602MAX700 % Enabled Mar 17, 2026 - Mar 31, 2026" [ref=e155]:
+            - cell "QA-SB4602MAX700" [ref=e156] [cursor=pointer]
+            - cell "%" [ref=e157] [cursor=pointer]
+            - cell "Enabled" [ref=e158] [cursor=pointer]:
+              - paragraph [ref=e161]: Enabled
+            - cell "Mar 17, 2026 - Mar 31, 2026" [ref=e162] [cursor=pointer]:
+              - generic [ref=e163]: Mar 17, 2026 - Mar 31, 2026
+            - cell [ref=e164] [cursor=pointer]
+            - cell [ref=e165] [cursor=pointer]:
+              - button [ref=e167]:
+                - img [ref=e168]
+          - row "QA-SB4602 % Disabled Mar 17, 2026 - Mar 31, 2026" [ref=e172]:
+            - cell "QA-SB4602" [ref=e173] [cursor=pointer]
+            - cell "%" [ref=e174] [cursor=pointer]
+            - cell "Disabled" [ref=e175] [cursor=pointer]:
+              - paragraph [ref=e178]: Disabled
+            - cell "Mar 17, 2026 - Mar 31, 2026" [ref=e179] [cursor=pointer]:
+              - generic [ref=e180]: Mar 17, 2026 - Mar 31, 2026
+            - cell [ref=e181] [cursor=pointer]
+            - cell [ref=e182] [cursor=pointer]:
+              - button [ref=e184]:
+                - img [ref=e185]
+          - row "QA-SB4599 % Enabled Mar 17, 2026 - Mar 31, 2026" [ref=e189]:
+            - cell "QA-SB4599" [ref=e190] [cursor=pointer]
+            - cell "%" [ref=e191] [cursor=pointer]
+            - cell "Enabled" [ref=e192] [cursor=pointer]:
+              - paragraph [ref=e195]: Enabled
+            - cell "Mar 17, 2026 - Mar 31, 2026" [ref=e196] [cursor=pointer]:
+              - generic [ref=e197]: Mar 17, 2026 - Mar 31, 2026
+            - cell [ref=e198] [cursor=pointer]
+            - cell [ref=e199] [cursor=pointer]:
+              - button [ref=e201]:
+                - img [ref=e202]
+          - row "QA-SB4600 % Enabled Mar 17, 2026 - Mar 31, 2026" [ref=e206]:
+            - cell "QA-SB4600" [ref=e207] [cursor=pointer]
+            - cell "%" [ref=e208] [cursor=pointer]
+            - cell "Enabled" [ref=e209] [cursor=pointer]:
+              - paragraph [ref=e212]: Enabled
+            - cell "Mar 17, 2026 - Mar 31, 2026" [ref=e213] [cursor=pointer]:
+              - generic [ref=e214]: Mar 17, 2026 - Mar 31, 2026
+            - cell [ref=e215] [cursor=pointer]
+            - cell [ref=e216] [cursor=pointer]:
+              - button [ref=e218]:
+                - img [ref=e219]
+          - row "QA-4601 % Enabled Mar 17, 2026 - Apr 01, 2026 10" [ref=e223]:
+            - cell "QA-4601" [ref=e224] [cursor=pointer]
+            - cell "%" [ref=e225] [cursor=pointer]
+            - cell "Enabled" [ref=e226] [cursor=pointer]:
+              - paragraph [ref=e229]: Enabled
+            - cell "Mar 17, 2026 - Apr 01, 2026" [ref=e230] [cursor=pointer]:
+              - generic [ref=e231]: Mar 17, 2026 - Apr 01, 2026
+            - cell "10" [ref=e232] [cursor=pointer]
+            - cell [ref=e233] [cursor=pointer]:
+              - button [ref=e235]:
+                - img [ref=e236]
+          - row "QAKlavijoAll % Enabled Mar 12, 2026 - Mar 13, 2026" [ref=e240]:
+            - cell "QAKlavijoAll" [ref=e241] [cursor=pointer]
+            - cell "%" [ref=e242] [cursor=pointer]
+            - cell "Enabled" [ref=e243] [cursor=pointer]:
+              - paragraph [ref=e246]: Enabled
+            - cell "Mar 12, 2026 - Mar 13, 2026" [ref=e247] [cursor=pointer]:
+              - generic [ref=e248]: Mar 12, 2026 - Mar 13, 2026
+            - cell [ref=e249] [cursor=pointer]
+            - cell [ref=e250] [cursor=pointer]:
+              - button [ref=e252]:
+                - img [ref=e253]
+          - row "QAKlaviyo % Enabled Mar 12, 2026 - Apr 22, 2026" [ref=e257]:
+            - cell "QAKlaviyo" [ref=e258] [cursor=pointer]
+            - cell "%" [ref=e259] [cursor=pointer]
+            - cell "Enabled" [ref=e260] [cursor=pointer]:
+              - paragraph [ref=e263]: Enabled
+            - cell "Mar 12, 2026 - Apr 22, 2026" [ref=e264] [cursor=pointer]:
+              - generic [ref=e265]: Mar 12, 2026 - Apr 22, 2026
+            - cell [ref=e266] [cursor=pointer]
+            - cell [ref=e267] [cursor=pointer]:
+              - button [ref=e269]:
+                - img [ref=e270]
+          - row "QA-JP-KLAVIYO % Enabled Mar 19, 2026 - Mar 26, 2026" [ref=e274]:
+            - cell "QA-JP-KLAVIYO" [ref=e275] [cursor=pointer]
+            - cell "%" [ref=e276] [cursor=pointer]
+            - cell "Enabled" [ref=e277] [cursor=pointer]:
+              - paragraph [ref=e280]: Enabled
+            - cell "Mar 19, 2026 - Mar 26, 2026" [ref=e281] [cursor=pointer]:
+              - generic [ref=e282]: Mar 19, 2026 - Mar 26, 2026
+            - cell [ref=e283] [cursor=pointer]
+            - cell [ref=e284] [cursor=pointer]:
+              - button [ref=e286]:
+                - img [ref=e287]
+          - row "Black Friday Discount % Enabled Mar 16, 2026 - Mar 20, 2026 5,000" [ref=e291]:
+            - cell "Black Friday Discount" [ref=e292] [cursor=pointer]
+            - cell "%" [ref=e293] [cursor=pointer]
+            - cell "Enabled" [ref=e294] [cursor=pointer]:
+              - paragraph [ref=e297]: Enabled
+            - cell "Mar 16, 2026 - Mar 20, 2026" [ref=e298] [cursor=pointer]:
+              - generic [ref=e299]: Mar 16, 2026 - Mar 20, 2026
+            - cell "5,000" [ref=e300] [cursor=pointer]
+            - cell [ref=e301] [cursor=pointer]:
+              - button [ref=e303]:
+                - img [ref=e304]
+      - generic [ref=e308]:
+        - combobox [ref=e310]:
+          - generic: "10"
+          - img
+        - generic [ref=e311]:
+          - generic [ref=e312]: Showing 1 to 10 of 190
+          - generic [ref=e313]:
+            - button "Go to page -1" [disabled] [ref=e314]:
+              - img [ref=e315]
+            - button "1" [ref=e317]
+            - button "2" [ref=e318]
+            - button "3" [ref=e319]
+            - generic [ref=e320]: ...
+            - button "19" [ref=e321]
+            - button "Go to page 1" [ref=e322]:
+              - img [ref=e323]
+    - region "Notifications alt+T"
+```
