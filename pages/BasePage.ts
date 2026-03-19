@@ -4,6 +4,16 @@
 import { Page, Locator, expect } from '@playwright/test';
 import { ENV } from '../config/env';
 
+export type UserRole =
+  | 'platform:global:admin'
+  | 'platform:manager:b2b'
+  | 'platform:manager:b2c'
+  | 'platform:customer:experience'
+  | 'platform:customer:support'
+  | 'platform:customer:test'
+  | 'platform:financial:admin'
+  | 'platform:reader';
+
 export class BasePage {
   readonly page: Page;
 
@@ -22,10 +32,44 @@ export class BasePage {
     await this.goto(ENV.MODULES.DASHBOARD);
   }
 
+  // ─── Role Management ───────────────────────────────────────────────────────
+
+  async changeRole(role: UserRole): Promise<void> {
+    await this.goto(ENV.MODULES.DASHBOARD);
+
+    await this.page.locator('button:has(.lucide-ellipsis-vertical)').click();
+    await this.page.getByRole('menuitem', { name: 'Test with Role' }).click();
+    await this.page.getByRole('combobox').click();
+    await this.page.getByText(role).click();
+    await this.page.getByRole('button', { name: 'Apply Role' }).click();
+    await this.page.waitForLoadState('domcontentloaded');
+    await this.page.waitForTimeout(2000);
+  }
+
+  async ensureRole(role: UserRole): Promise<void> {
+    await this.goto(ENV.MODULES.DASHBOARD);
+
+    const roleIndicator = this.page.getByText(`Testing as role: ${role}`);
+    const isRoleActive = await roleIndicator.isVisible({ timeout: 3000 }).catch(() => false);
+
+    if (!isRoleActive) {
+      console.log(`🔄 Changing role to ${role}...`);
+      await this.changeRole(role);
+      console.log(`✅ Role changed to ${role}`);
+    } else {
+      console.log(`✅ Already on role ${role}`);
+    }
+  }
+
+  async expectRoleActive(role: UserRole): Promise<void> {
+    await expect(
+      this.page.getByText(`Testing as role: ${role}`)
+    ).toBeVisible({ timeout: 10_000 });
+  }
+
   // ─── Waiting Helpers ────────────────────────────────────────────────────────
 
   async waitForPageReady(): Promise<void> {
-    await this.page.waitForLoadState('domcontentloaded');
     await this.page.waitForLoadState('domcontentloaded');
   }
 
@@ -46,16 +90,7 @@ export class BasePage {
     await expect(this.page).toHaveURL(new RegExp(urlPart));
   }
 
-  async expectToastMessage(message: string): Promise<void> {
-    const toast = this.page.locator('[class*="toast"], [class*="notification"], [role="alert"]');
-    await expect(toast.filter({ hasText: message })).toBeVisible({ timeout: 10_000 });
-  }
-
   // ─── Sidebar Navigation ─────────────────────────────────────────────────────
-
-  get sidebarModules(): Locator {
-    return this.page.locator('nav').getByText('Modules');
-  }
 
   async clickSidebarItem(testId: string): Promise<void> {
     await this.page.getByTestId(testId).click();
