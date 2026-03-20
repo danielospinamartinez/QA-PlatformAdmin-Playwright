@@ -58,168 +58,142 @@
           - generic [ref=e76]:
             - img [ref=e77]
             - generic [ref=e79]: Discounts & Vouchers
-    - list [ref=e81]:
-      - listitem [ref=e82]:
-        - button "Gustavo Adolfo Gustavo Adolfo gustavo.ospina@holafly.com" [ref=e83]:
-          - img "Gustavo Adolfo" [ref=e85]
-          - generic [ref=e86]:
-            - generic [ref=e87]: Gustavo Adolfo
-            - generic [ref=e88]: gustavo.ospina@holafly.com
-          - img [ref=e89]
-  - main [ref=e93]:
-    - generic [ref=e94]:
-      - navigation [ref=e95]:
-        - link [ref=e96] [cursor=pointer]:
-          - /url: /platform-admin/
-          - img [ref=e97]
-        - img [ref=e100]
-        - generic [ref=e102]: Discounts and vouchers
-      - heading "Discounts and vouchers" [level=1] [ref=e104]
+      - listitem [ref=e80]:
+        - link "Settings" [ref=e81] [cursor=pointer]:
+          - /url: /platform-admin/settings/admin
+          - generic [ref=e84]:
+            - img [ref=e85]
+            - generic [ref=e87]: Settings
+    - list [ref=e89]:
+      - listitem [ref=e90]:
+        - generic [ref=e92]:
+          - img
+          - generic [ref=e93]: "Testing as: platform:manager:b2b"
+        - button "Gustavo Adolfo Gustavo Adolfo gustavo.ospina@holafly.com" [ref=e94]:
+          - img "Gustavo Adolfo" [ref=e96]
+          - generic [ref=e97]:
+            - generic [ref=e98]: Gustavo Adolfo
+            - generic [ref=e99]: gustavo.ospina@holafly.com
+          - img [ref=e100]
+  - main [ref=e104]:
+    - alert [ref=e105]:
+      - img [ref=e106]
       - generic [ref=e108]:
-        - textbox "Search by discount name" [ref=e109]
-        - button [ref=e110]:
-          - img [ref=e111]
-      - table [ref=e116]:
-        - rowgroup [ref=e117]:
-          - row "Discount name Type Status Validity window Usage counter Actions" [ref=e118]:
-            - columnheader "Discount name" [ref=e119]:
-              - generic [ref=e121]: Discount name
-            - columnheader "Type" [ref=e122]:
-              - generic [ref=e124]: Type
-            - columnheader "Status" [ref=e125]:
-              - generic [ref=e127]: Status
-            - columnheader "Validity window" [ref=e128]:
-              - generic [ref=e130]: Validity window
-            - columnheader "Usage counter" [ref=e131]:
-              - generic [ref=e133]: Usage counter
-            - columnheader "Actions" [ref=e134]:
-              - generic [ref=e136]: Actions
-        - rowgroup [ref=e137]:
-          - row "QA-Test50 % Enabled Mar 17, 2026 - Mar 31, 2026" [ref=e138]:
-            - cell "QA-Test50" [ref=e139] [cursor=pointer]
-            - cell "%" [ref=e140] [cursor=pointer]
-            - cell "Enabled" [ref=e141] [cursor=pointer]:
-              - paragraph [ref=e144]: Enabled
-            - cell "Mar 17, 2026 - Mar 31, 2026" [ref=e145] [cursor=pointer]:
-              - generic [ref=e146]: Mar 17, 2026 - Mar 31, 2026
-            - cell [ref=e147] [cursor=pointer]
-            - cell [ref=e148] [cursor=pointer]:
-              - button [ref=e150]:
-                - img [ref=e151]
-          - row "QA-SB4602MAX700 % Enabled Mar 17, 2026 - Mar 31, 2026" [ref=e155]:
-            - cell "QA-SB4602MAX700" [ref=e156] [cursor=pointer]
-            - cell "%" [ref=e157] [cursor=pointer]
-            - cell "Enabled" [ref=e158] [cursor=pointer]:
-              - paragraph [ref=e161]: Enabled
-            - cell "Mar 17, 2026 - Mar 31, 2026" [ref=e162] [cursor=pointer]:
-              - generic [ref=e163]: Mar 17, 2026 - Mar 31, 2026
-            - cell [ref=e164] [cursor=pointer]
-            - cell [ref=e165] [cursor=pointer]:
-              - button [ref=e167]:
-                - img [ref=e168]
-          - row "QA-SB4602 % Disabled Mar 17, 2026 - Mar 31, 2026" [ref=e172]:
-            - cell "QA-SB4602" [ref=e173] [cursor=pointer]
-            - cell "%" [ref=e174] [cursor=pointer]
-            - cell "Disabled" [ref=e175] [cursor=pointer]:
-              - paragraph [ref=e178]: Disabled
-            - cell "Mar 17, 2026 - Mar 31, 2026" [ref=e179] [cursor=pointer]:
-              - generic [ref=e180]: Mar 17, 2026 - Mar 31, 2026
-            - cell [ref=e181] [cursor=pointer]
-            - cell [ref=e182] [cursor=pointer]:
-              - button [ref=e184]:
-                - img [ref=e185]
-          - row "QA-SB4599 % Enabled Mar 17, 2026 - Mar 31, 2026" [ref=e189]:
-            - cell "QA-SB4599" [ref=e190] [cursor=pointer]
-            - cell "%" [ref=e191] [cursor=pointer]
-            - cell "Enabled" [ref=e192] [cursor=pointer]:
-              - paragraph [ref=e195]: Enabled
-            - cell "Mar 17, 2026 - Mar 31, 2026" [ref=e196] [cursor=pointer]:
-              - generic [ref=e197]: Mar 17, 2026 - Mar 31, 2026
-            - cell [ref=e198] [cursor=pointer]
-            - cell [ref=e199] [cursor=pointer]:
-              - button [ref=e201]:
-                - img [ref=e202]
-          - row "QA-SB4600 % Enabled Mar 17, 2026 - Mar 31, 2026" [ref=e206]:
-            - cell "QA-SB4600" [ref=e207] [cursor=pointer]
-            - cell "%" [ref=e208] [cursor=pointer]
-            - cell "Enabled" [ref=e209] [cursor=pointer]:
-              - paragraph [ref=e212]: Enabled
-            - cell "Mar 17, 2026 - Mar 31, 2026" [ref=e213] [cursor=pointer]:
-              - generic [ref=e214]: Mar 17, 2026 - Mar 31, 2026
-            - cell [ref=e215] [cursor=pointer]
-            - cell [ref=e216] [cursor=pointer]:
-              - button [ref=e218]:
-                - img [ref=e219]
-          - row "QA-4601 % Enabled Mar 17, 2026 - Apr 01, 2026 10" [ref=e223]:
-            - cell "QA-4601" [ref=e224] [cursor=pointer]
-            - cell "%" [ref=e225] [cursor=pointer]
-            - cell "Enabled" [ref=e226] [cursor=pointer]:
-              - paragraph [ref=e229]: Enabled
-            - cell "Mar 17, 2026 - Apr 01, 2026" [ref=e230] [cursor=pointer]:
-              - generic [ref=e231]: Mar 17, 2026 - Apr 01, 2026
-            - cell "10" [ref=e232] [cursor=pointer]
-            - cell [ref=e233] [cursor=pointer]:
-              - button [ref=e235]:
-                - img [ref=e236]
-          - row "QAKlavijoAll % Enabled Mar 12, 2026 - Mar 13, 2026" [ref=e240]:
-            - cell "QAKlavijoAll" [ref=e241] [cursor=pointer]
-            - cell "%" [ref=e242] [cursor=pointer]
-            - cell "Enabled" [ref=e243] [cursor=pointer]:
-              - paragraph [ref=e246]: Enabled
-            - cell "Mar 12, 2026 - Mar 13, 2026" [ref=e247] [cursor=pointer]:
-              - generic [ref=e248]: Mar 12, 2026 - Mar 13, 2026
-            - cell [ref=e249] [cursor=pointer]
-            - cell [ref=e250] [cursor=pointer]:
-              - button [ref=e252]:
-                - img [ref=e253]
-          - row "QAKlaviyo % Enabled Mar 12, 2026 - Apr 22, 2026" [ref=e257]:
-            - cell "QAKlaviyo" [ref=e258] [cursor=pointer]
-            - cell "%" [ref=e259] [cursor=pointer]
-            - cell "Enabled" [ref=e260] [cursor=pointer]:
-              - paragraph [ref=e263]: Enabled
-            - cell "Mar 12, 2026 - Apr 22, 2026" [ref=e264] [cursor=pointer]:
-              - generic [ref=e265]: Mar 12, 2026 - Apr 22, 2026
-            - cell [ref=e266] [cursor=pointer]
-            - cell [ref=e267] [cursor=pointer]:
-              - button [ref=e269]:
-                - img [ref=e270]
-          - row "QA-JP-KLAVIYO % Enabled Mar 19, 2026 - Mar 26, 2026" [ref=e274]:
-            - cell "QA-JP-KLAVIYO" [ref=e275] [cursor=pointer]
-            - cell "%" [ref=e276] [cursor=pointer]
-            - cell "Enabled" [ref=e277] [cursor=pointer]:
-              - paragraph [ref=e280]: Enabled
-            - cell "Mar 19, 2026 - Mar 26, 2026" [ref=e281] [cursor=pointer]:
-              - generic [ref=e282]: Mar 19, 2026 - Mar 26, 2026
-            - cell [ref=e283] [cursor=pointer]
-            - cell [ref=e284] [cursor=pointer]:
-              - button [ref=e286]:
-                - img [ref=e287]
-          - row "Black Friday Discount % Enabled Mar 16, 2026 - Mar 20, 2026 5,000" [ref=e291]:
-            - cell "Black Friday Discount" [ref=e292] [cursor=pointer]
-            - cell "%" [ref=e293] [cursor=pointer]
-            - cell "Enabled" [ref=e294] [cursor=pointer]:
-              - paragraph [ref=e297]: Enabled
-            - cell "Mar 16, 2026 - Mar 20, 2026" [ref=e298] [cursor=pointer]:
-              - generic [ref=e299]: Mar 16, 2026 - Mar 20, 2026
-            - cell "5,000" [ref=e300] [cursor=pointer]
-            - cell [ref=e301] [cursor=pointer]:
-              - button [ref=e303]:
-                - img [ref=e304]
-      - generic [ref=e308]:
-        - combobox [ref=e310]:
+        - generic [ref=e109]: 🧪 Developer Testing Mode Active
+        - generic [ref=e111]: "Testing as role: platform:manager:b2b"
+        - button "Exit" [ref=e112] [cursor=pointer]:
+          - img
+          - text: Exit
+    - generic [ref=e115]:
+      - navigation [ref=e116]:
+        - link [ref=e117] [cursor=pointer]:
+          - /url: /platform-admin/
+          - img [ref=e118]
+        - img [ref=e121]
+        - generic [ref=e123]: Discounts and vouchers
+      - heading "Discounts and vouchers" [level=1] [ref=e125]
+      - generic [ref=e127]:
+        - generic [ref=e129]:
+          - textbox "Search by discount name" [ref=e130]: QA-
+          - button [active] [ref=e131]:
+            - img [ref=e132]
+        - button "Create discount" [ref=e135] [cursor=pointer]
+      - table [ref=e138]:
+        - rowgroup [ref=e139]:
+          - row "Discount name Type Status Validity window Actions" [ref=e140]:
+            - columnheader "Discount name" [ref=e141]:
+              - generic [ref=e143]: Discount name
+            - columnheader "Type" [ref=e144]:
+              - generic [ref=e146]: Type
+            - columnheader "Status" [ref=e147]:
+              - generic [ref=e149]: Status
+            - columnheader "Validity window" [ref=e150]:
+              - generic [ref=e152]: Validity window
+            - columnheader "Actions" [ref=e153]:
+              - generic [ref=e155]: Actions
+        - rowgroup [ref=e156]:
+          - row "No discounts found" [ref=e157]:
+            - cell "No discounts found" [ref=e158]:
+              - generic [ref=e159]:
+                - img [ref=e160]
+                - paragraph [ref=e163]: No discounts found
+      - generic [ref=e164]:
+        - combobox [ref=e166]:
           - generic: "10"
           - img
-        - generic [ref=e311]:
-          - generic [ref=e312]: Showing 1 to 10 of 190
-          - generic [ref=e313]:
-            - button "Go to page -1" [disabled] [ref=e314]:
-              - img [ref=e315]
-            - button "1" [ref=e317]
-            - button "2" [ref=e318]
-            - button "3" [ref=e319]
-            - generic [ref=e320]: ...
-            - button "19" [ref=e321]
-            - button "Go to page 1" [ref=e322]:
-              - img [ref=e323]
+        - generic [ref=e167]:
+          - generic [ref=e168]: Showing 1 to 0 of 0
+          - generic [ref=e169]:
+            - button "Go to page -1" [disabled] [ref=e170]:
+              - img [ref=e171]
+            - button "1" [ref=e173]
+            - button "Go to page 1" [disabled] [ref=e174]:
+              - img [ref=e175]
+    - table [ref=e190]:
+      - rowgroup [ref=e191]:
+        - row [ref=e192]:
+          - columnheader [ref=e193]
+          - columnheader [ref=e195]
+          - columnheader [ref=e197]
+          - columnheader [ref=e199]
+          - columnheader [ref=e201]
+          - columnheader [ref=e203]
+          - columnheader [ref=e205]
+          - columnheader [ref=e207]
+      - rowgroup [ref=e209]:
+        - row [ref=e210]:
+          - cell [ref=e211]
+          - cell [ref=e213]
+          - cell [ref=e215]
+          - cell [ref=e217]
+          - cell [ref=e219]
+          - cell [ref=e221]
+          - cell [ref=e223]
+          - cell [ref=e225]
+        - row [ref=e227]:
+          - cell [ref=e228]
+          - cell [ref=e230]
+          - cell [ref=e232]
+          - cell [ref=e234]
+          - cell [ref=e236]
+          - cell [ref=e238]
+          - cell [ref=e240]
+          - cell [ref=e242]
+        - row [ref=e244]:
+          - cell [ref=e245]
+          - cell [ref=e247]
+          - cell [ref=e249]
+          - cell [ref=e251]
+          - cell [ref=e253]
+          - cell [ref=e255]
+          - cell [ref=e257]
+          - cell [ref=e259]
+        - row [ref=e261]:
+          - cell [ref=e262]
+          - cell [ref=e264]
+          - cell [ref=e266]
+          - cell [ref=e268]
+          - cell [ref=e270]
+          - cell [ref=e272]
+          - cell [ref=e274]
+          - cell [ref=e276]
+        - row [ref=e278]:
+          - cell [ref=e279]
+          - cell [ref=e281]
+          - cell [ref=e283]
+          - cell [ref=e285]
+          - cell [ref=e287]
+          - cell [ref=e289]
+          - cell [ref=e291]
+          - cell [ref=e293]
+        - row [ref=e295]:
+          - cell [ref=e296]
+          - cell [ref=e298]
+          - cell [ref=e300]
+          - cell [ref=e302]
+          - cell [ref=e304]
+          - cell [ref=e306]
+          - cell [ref=e308]
+          - cell [ref=e310]
     - region "Notifications alt+T"
 ```

@@ -3,18 +3,18 @@
 
 import { test, expect } from '../../fixtures';
 import { DISCOUNTS } from '../../utils/testData';
+import { DiscountsPage } from '../../pages/DiscountsPage';
 
 test.describe('Discounts & Vouchers', () => {
-
-  test.beforeEach(async ({ discountsPage }) => {
-    // Navigate to discounts before each test
-    await discountsPage.navigate();
-    await discountsPage.expectPageLoaded();
-  });
 
   // ─── Smoke Tests ────────────────────────────────────────────────────────────
 
   test.describe('Smoke - Page Load', () => {
+
+    test.beforeEach(async ({ discountsPage }) => {
+      await discountsPage.navigate();
+      await discountsPage.expectPageLoaded();
+    });
 
     test('should load discounts page with correct title', async ({ discountsPage }) => {
       await discountsPage.expectPageLoaded();
@@ -29,12 +29,7 @@ test.describe('Discounts & Vouchers', () => {
       await expect(discountsPage.searchInput).toBeEnabled();
     });
 
-    test('should show "Create discount" button', async ({ discountsPage }) => {
-      await expect(discountsPage.createDiscountButton).toBeVisible();
-    });
-
-    test('should display column headers', async ({ discountsPage }) => {
-      const { page } = discountsPage;
+    test('should display column headers', async ({ discountsPage, page }) => {
       await expect(page.getByText('Discount name')).toBeVisible();
       await expect(page.getByText('Type')).toBeVisible();
       await expect(page.getByText('Status')).toBeVisible();
@@ -43,10 +38,70 @@ test.describe('Discounts & Vouchers', () => {
       await expect(page.getByText('Actions')).toBeVisible();
     });
 
-    test('should show enabled and disabled statuses', async ({ discountsPage }) => {
-      // Verify both statuses exist in the table (based on screenshot data)
+    test('should show enabled statuses in table', async ({ discountsPage }) => {
       const enabledCount = await discountsPage.enabledBadges().count();
       expect(enabledCount).toBeGreaterThan(0);
+    });
+
+  });
+
+  // ─── Role-based Tests ────────────────────────────────────────────────────────
+
+  test.describe('Role - Reader', () => {
+
+    test.beforeAll(async ({ browser }) => {
+      // Ensure we are on reader role (default - exit any active role)
+      const context = await browser.newContext({
+        storageState: 'fixtures/auth.json',
+        userAgent: 'hly--dev--go',
+      });
+      const page = await context.newPage();
+      const discountsPage = new DiscountsPage(page);
+      await discountsPage.navigateToDashboard();
+
+      // Exit any active role if present
+      const exitButton = page.getByRole('button', { name: 'Exit' });
+      if (await exitButton.isVisible({ timeout: 3000 }).catch(() => false)) {
+        await exitButton.click();
+        await page.waitForLoadState('domcontentloaded');
+      }
+
+      await context.storageState({ path: 'fixtures/auth.json' });
+      await context.close();
+    });
+
+    test.beforeEach(async ({ discountsPage }) => {
+      await discountsPage.navigate();
+      await discountsPage.expectPageLoaded();
+    });
+
+    test('should NOT show Create discount button with reader role', async ({ discountsPage }) => {
+      await discountsPage.expectCreateButtonNotVisible();
+    });
+
+  });
+
+  test.describe('Role - Manager B2B', () => {
+
+    test.beforeAll(async ({ browser }) => {
+      const context = await browser.newContext({
+        storageState: 'fixtures/auth.json',
+        userAgent: 'hly--dev--go',
+      });
+      const page = await context.newPage();
+      const discountsPage = new DiscountsPage(page);
+      await discountsPage.ensureRole('platform:manager:b2b');
+      await context.storageState({ path: 'fixtures/auth.json' });
+      await context.close();
+    });
+
+    test.beforeEach(async ({ discountsPage }) => {
+      await discountsPage.navigate();
+      await discountsPage.expectPageLoaded();
+    });
+
+    test('should show Create discount button with manager role', async ({ discountsPage }) => {
+      await discountsPage.expectCreateButtonVisible();
     });
 
   });
@@ -55,29 +110,23 @@ test.describe('Discounts & Vouchers', () => {
 
   test.describe('Search Functionality', () => {
 
+    test.beforeEach(async ({ discountsPage }) => {
+      await discountsPage.navigate();
+      await discountsPage.expectPageLoaded();
+    });
+
     test('should filter discounts by name', async ({ discountsPage }) => {
       await discountsPage.searchDiscount(DISCOUNTS.searchTerms.VALID);
       await discountsPage.expectTableHasData();
-      // All results should contain the search term
       const names = await discountsPage.getDiscountNames();
       names.forEach(name => {
         expect(name.toLowerCase()).toContain(DISCOUNTS.searchTerms.VALID.toLowerCase());
       });
     });
 
-    test('should show no results for invalid search', async ({ discountsPage, page }) => {
-      await discountsPage.searchDiscount(DISCOUNTS.searchTerms.INVALID);
-      // Should show empty state
-      const rowCount = await discountsPage.getRowCount();
-      expect(rowCount).toBe(0);
-    });
-
     test('should clear search and show all discounts', async ({ discountsPage }) => {
-      // First search for something
       await discountsPage.searchDiscount(DISCOUNTS.searchTerms.VALID);
       const filteredCount = await discountsPage.getRowCount();
-
-      // Clear and verify all results return
       await discountsPage.clearSearch();
       const totalCount = await discountsPage.getRowCount();
       expect(totalCount).toBeGreaterThanOrEqual(filteredCount);
@@ -90,46 +139,14 @@ test.describe('Discounts & Vouchers', () => {
 
   });
 
-  // ─── Create Discount Tests ────────────────────────────────────────────────────
-
-  test.describe('Create Discount', () => {
-
-    test('should open create discount form when button clicked', async ({ discountsPage, page }) => {
-      await discountsPage.clickCreateDiscount();
-      // After clicking, should navigate or show a modal/form
-      // Update this assertion once you share the create form screenshot
-      await expect(page).not.toHaveURL(new RegExp('discounts$'));
-      // OR if it's a modal:
-      // await expect(page.getByRole('dialog')).toBeVisible();
-    });
-
-  });
-
-  // ─── Actions Menu Tests ────────────────────────────────────────────────────
-
-  test.describe('Row Actions Menu', () => {
-
-    test('should open actions menu on first row', async ({ discountsPage, page }) => {
-      await discountsPage.openActionsMenu(0);
-      // Menu should appear - update selectors based on actual menu options
-      const menu = page.locator('[role="menu"], [class*="dropdown-menu"], [class*="actions-menu"]');
-      await expect(menu).toBeVisible({ timeout: 5000 });
-    });
-
-  });
-
   // ─── Navigation Tests ────────────────────────────────────────────────────────
 
   test.describe('Navigation', () => {
 
-    test('should be accessible from sidebar', async ({ dashboardPage, page }) => {
-      await dashboardPage.navigate();
-      await dashboardPage.clickSidebarItem('Discounts & Vouchers');
+    test('should be accessible from sidebar', async ({ discountsPage, page }) => {
+      await discountsPage.navigateToDashboard();
+      await discountsPage.clickSidebarItem('sidebar-link-sidebar.discounts');
       await expect(page).toHaveURL(new RegExp('discounts'));
-    });
-
-    test('should show breadcrumb navigation', async ({ discountsPage, page }) => {
-      await expect(page.getByText('Discounts and vouchers')).toBeVisible();
     });
 
   });

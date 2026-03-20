@@ -1,0 +1,9 @@
+node_modules/
+dist/
+test-results/
+reports/
+playwright-report/
+.env
+fixtures/auth.json
+*.log
+.DS_Store

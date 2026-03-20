@@ -6,7 +6,6 @@ import { Page, Locator, expect } from '@playwright/test';
 import { BasePage } from './BasePage';
 import { ENV } from '../config/env';
 
-// Types to represent the data model
 export type DiscountStatus = 'Enabled' | 'Disabled';
 export type DiscountType = '%' | '€';
 
@@ -27,39 +26,31 @@ export class DiscountsPage extends BasePage {
   }
 
   get searchInput(): Locator {
-    return this.page.getByPlaceholder('Search by discount name');
+    return this.page.getByRole('textbox', { name: 'Search by discount name' });
+  }
+
+  get searchButton(): Locator {
+    return this.page.locator('form').getByRole('button');
   }
 
   get createDiscountButton(): Locator {
     return this.page.getByRole('button', { name: 'Create discount' });
   }
 
-  get discountsTable(): Locator {
-    return this.page.getByRole('table').or(
-      this.page.locator('table, [class*="table"], [class*="list"]')
-    ).first();
-  }
-
   get tableRows(): Locator {
-    return this.page.locator('tbody tr, [class*="row"]:not(:first-child)');
+    return this.page.locator('tbody tr');
   }
 
-  get columnHeaders(): Locator {
-    return this.page.locator('thead th, [class*="header"] [class*="cell"]');
+  actionsMenuButton(rowIndex: number = 0): Locator {
+    return this.tableRows.nth(rowIndex).getByRole('button').last();
   }
 
-  // Status badges
   enabledBadges(): Locator {
-    return this.page.locator('[class*="badge"], span').filter({ hasText: 'Enabled' });
+    return this.page.locator('span, div').filter({ hasText: /^Enabled$/ });
   }
 
   disabledBadges(): Locator {
-    return this.page.locator('[class*="badge"], span').filter({ hasText: 'Disabled' });
-  }
-
-  // Actions menu (the "..." button on each row)
-  actionsMenuButton(rowIndex: number = 0): Locator {
-    return this.tableRows.nth(rowIndex).getByRole('button').last();
+    return this.page.locator('span').filter({ hasText: 'Disabled' });
   }
 
   // ─── Navigation ────────────────────────────────────────────────────────────
@@ -72,12 +63,13 @@ export class DiscountsPage extends BasePage {
 
   async searchDiscount(name: string): Promise<void> {
     await this.searchInput.fill(name);
-    await this.page.keyboard.press('Enter');
+    await this.searchButton.click();
     await this.waitForSpinnerToDisappear();
   }
 
   async clearSearch(): Promise<void> {
     await this.searchInput.clear();
+    await this.searchButton.click();
     await this.waitForSpinnerToDisappear();
   }
 
@@ -90,17 +82,10 @@ export class DiscountsPage extends BasePage {
     await this.actionsMenuButton(rowIndex).click();
   }
 
-  async clickActionMenuItem(actionName: string): Promise<void> {
-    const menuItem = this.page.getByRole('menuitem', { name: actionName })
-      .or(this.page.locator('[role="menu"] li, [class*="dropdown"] li').filter({ hasText: actionName }));
-    await menuItem.click();
-  }
-
   // ─── Data Extraction ────────────────────────────────────────────────────────
 
   async getDiscountNames(): Promise<string[]> {
-    const nameCell = this.page.locator('tbody td:first-child, [class*="row"] [class*="cell"]:first-child');
-    return await nameCell.allTextContents();
+    return await this.page.locator('tbody td:first-child').allTextContents();
   }
 
   async getRowCount(): Promise<number> {
@@ -116,38 +101,28 @@ export class DiscountsPage extends BasePage {
   async expectPageLoaded(): Promise<void> {
     await expect(this.heading).toBeVisible();
     await expect(this.searchInput).toBeVisible();
+  }
+
+  async expectCreateButtonVisible(): Promise<void> {
     await expect(this.createDiscountButton).toBeVisible();
   }
 
+  async expectCreateButtonNotVisible(): Promise<void> {
+    await expect(this.createDiscountButton).not.toBeVisible();
+  }
+
   async expectDiscountInList(name: string): Promise<void> {
-    const row = await this.getDiscountByName(name);
+    const row = this.tableRows.filter({ hasText: name });
     await expect(row).toBeVisible();
   }
 
   async expectDiscountNotInList(name: string): Promise<void> {
-    const row = await this.getDiscountByName(name);
-    await expect(row).not.toBeVisible();
-  }
-
-  async expectDiscountStatus(name: string, status: DiscountStatus): Promise<void> {
     const row = this.tableRows.filter({ hasText: name });
-    await expect(row.getByText(status)).toBeVisible();
+    await expect(row).not.toBeVisible();
   }
 
   async expectTableHasData(): Promise<void> {
     const count = await this.getRowCount();
     expect(count).toBeGreaterThan(0);
-  }
-
-  async expectSearchResultsFor(term: string): Promise<void> {
-    // After searching, all visible discount names should contain the search term
-    const names = await this.getDiscountNames();
-    names.forEach(name => {
-      expect(name.toLowerCase()).toContain(term.toLowerCase());
-    });
-  }
-
-  async expectUrl(): Promise<void> {
-    await this.expectUrl('modules/discounts');
   }
 }

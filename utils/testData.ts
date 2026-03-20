@@ -29,7 +29,7 @@ export const DISCOUNTS = {
 
   // Search terms
   searchTerms: {
-    VALID: 'TestKlaviyo',
+    VALID: 'QA-',
     INVALID: 'DISCOUNT_THAT_DOES_NOT_EXIST_XYZ',
     PARTIAL: 'test',
   },
